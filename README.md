@@ -10,7 +10,9 @@ Fork the repository and customize it to your needs. Follow the guide below how t
 ### What are the components?
 
 **Weavy** - .NET Standard shared code library
+
 **Weavy.Android** - Android implementation of the app
+
 **Weavy.iOS** - iOS implementation of the app
 
 
