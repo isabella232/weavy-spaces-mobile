@@ -81,5 +81,7 @@ Please make sure to read through the instructions on the links above to fully un
 
 **Note!** The access policy connection string is handled differently in the Android and the iOS project. In the Android project, the whole connection string is specified as the `ConnectionString` property, but in the iOS project, the connection string is split into a connection string and a shared key. More information and example is in the code comments.
 
+### The google-services.json file
+When you created a new project in [Firebase](https://firebase.google.com), you should have a google-services.json file that you downloaded. Add (or replace the existing one) in the Android project. Make sure the Build Action is set to `GoogleServicesJson`. The json file contains all the necessary settings and is automatically merged into the manifest when building the project.
 
 
