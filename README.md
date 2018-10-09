@@ -25,7 +25,18 @@ All communication between the web page and the native app is handled through a j
 Push notifications are sent to the app from the Weavy web application through  Azure Notification Hubs. Please take a look at the **Push Notifications** section below for more info on how to set up this.
 
 
+### Configuring the app
 
+The first thing you have to do is to configure the app with the correct values required to run and publish the app. The sections below explain in detail what you need to do in each of the projects.
+
+#### Weavy project
+In the Weavy project, all the values that you need to change are located in the Helpers\Constants.cs file.
+
+| Tables   |      Are      |  Cool |
+|----------|:-------------:|------:|
+| col 1 is |  left-aligned | $1600 |
+| col 2 is |    centered   |   $12 |
+| col 3 is | right-aligned |    $1 |
 
 
 
