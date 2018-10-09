@@ -32,11 +32,12 @@ The first thing you have to do is to configure the app with the correct values r
 #### Weavy project
 In the Weavy project, all the values that you need to change are located in the Helpers\Constants.cs file.
 
-| Tables   |      Are      |  Cool |
-|----------|:-------------:|------:|
-| col 1 is |  left-aligned | $1600 |
-| col 2 is |    centered   |   $12 |
-| col 3 is | right-aligned |    $1 |
+| Property   |      Example value      |  Description |
+|----------|-------------|------|
+| DisplayName |  Weavy Spaces | A title used in various info texts and alerts in the app |
+|DisplayShortName |    Weavy   |   A shorter version of the above |
+| AzureSuffix | mycloud.com |    This suffix is added on the Select site page when a user enters a site name. Should match what you have set up in the Weavy Console |
+| DefaultColor | #156B93 |    The default color to use on startup before the theme colors has been fetched from the selected Weavy site |
 
 
 
