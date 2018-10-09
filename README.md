@@ -77,7 +77,9 @@ In order to make all this to work, both the Weavy web app and the mobile project
 
 **NOTE! You might already have setup the Notification Hubs in Azure when you configured the Weavy Console. In that case, you only have to get the Access policy connection string already available for the hub**
 
-Please make sure to read through the instructions on the links above to fully understand the process. When you are done, you should have a Notification Hub setup in Azure with both Android (GCM/Firebase) and Apple (iOS) credentials set and an Access Policy for the **DefaultListenSharedAccessSignature**. The accesspolicy connection string is then used to update the `Notification\Constants.cs` values in each of the platform projects.
+Please make sure to read through the instructions on the links above to fully understand the process. When you are done, you should have a Notification Hub setup in Azure with both Android (GCM/Firebase) and Apple (iOS) credentials set and an Access Policy for the **DefaultListenSharedAccessSignature**. Take the access policy connection string and update the `Notification\Constants.cs` values in each of the platform projects. 
+
+**Note!** The access policy connection string is handled differently in the Android and the iOS project. In the Android project, the whole connection string is specified as the `ConnectionString` property, but in the iOS project, the connection string is split into a connection string and a shared key. More information and example is in the code comments.
 
 
 
