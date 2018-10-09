@@ -41,3 +41,16 @@ In the Weavy project, all the values that you need to change are located in the 
 
 
 
+#### Weavy.Android
+In the Android project, you have to set properties such as package name and notification related settings.
+
+In the Properties pane of the project, set a Package name to use. This is a unique name that identifies the app.
+
+In the Notifications\Constants.cs file, please specify all the settings that are related to Notifications. The values for the Azure Notification Hub is explained in detail in the **Push Notifications** section below. Other values  in Constants.cs are:
+
+| Property   |      Example value      |  Description |
+|----------|-------------|------|
+| NOTIFICATION_CHANNEL_ID |  com.company.droid. GENERAL_NOTIFICATIONS | A unique value identifying an Android notification channel. You can use the package name specified earlier and add for example GENERAL_NOTIFICATIONS |
+|NOTIFICATION_GROUP_ID |    com.company.droid. NOTIFICATIONS   |   A unique value identifying an Android notification group where incoming notifications are grouped. You can use the package name specified earlier and add for example NOTIFICATIONS |
+
+<p class="callout info">Please note that the example values above are just that, examples. </p>
