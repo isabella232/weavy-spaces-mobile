@@ -5,7 +5,6 @@ using Weavy.Views;
 using Xamarin.Forms;
 using XLabs.Serialization.JsonNET;
 using Acr.Settings;
-using Xamarin.Essentials;
 using System;
 using Weavy.Controls;
 using Weavy.Interfaces;
@@ -20,12 +19,12 @@ namespace Weavy {
         /// </summary>
         /// <param name="url">The url to use. When a notification is received on Android, this is set to the notification url</param>
         public MainPage(string url = "") {
-                        
+
             // create a new hybrid webview
             _webview = new HybridWebView(new JsonSerializer()) {
                 Uri = ResolveUrl(url),
                 HorizontalOptions = LayoutOptions.FillAndExpand,
-                VerticalOptions = LayoutOptions.FillAndExpand                
+                VerticalOptions = LayoutOptions.FillAndExpand
             };
 
             // resume event
@@ -60,10 +59,15 @@ namespace Weavy {
 
                 }
             };
-            
 
-            // set the content
-            Content = _webview;
+            // the layout
+            var layout = new StackLayout {
+                HorizontalOptions = LayoutOptions.FillAndExpand,
+                VerticalOptions = LayoutOptions.FillAndExpand,
+                Children = { _webview }
+            };
+
+            Content = layout;
         }
 
 
@@ -112,7 +116,7 @@ namespace Weavy {
                 Device.BeginInvokeOnMainThread(() => {
                     _webview.InjectJavaScript(ScriptHelper.Scripts);
                 });
-                
+
             });
 
             // Callback for registration to Azure Notification Hub
@@ -154,7 +158,7 @@ namespace Weavy {
 
                 Task.Run(() => {
                     DependencyService.Get<IApplicationBadge>().SetBadge(badge);
-                });               
+                });
             });
 
             // callback for theming
@@ -162,9 +166,9 @@ namespace Weavy {
                 var themeColor = CrossSettings.Current.Get<string>("themecolor");
 
                 // update theme color if different
-                if(color != themeColor) {
+                if (color != themeColor) {
                     SetThemeColor(color);
-                }                
+                }
             });
 
             //Callback from external links script
