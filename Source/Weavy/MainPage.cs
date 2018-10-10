@@ -60,14 +60,7 @@ namespace Weavy {
                 }
             };
 
-            // the layout
-            var layout = new StackLayout {
-                HorizontalOptions = LayoutOptions.FillAndExpand,
-                VerticalOptions = LayoutOptions.FillAndExpand,
-                Children = { _webview }
-            };
-
-            Content = layout;
+            Content = _webview;
         }
 
 

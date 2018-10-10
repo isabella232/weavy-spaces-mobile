@@ -18,11 +18,14 @@ namespace Weavy.Controls {
         protected override void OnAppearing() {
             base.OnAppearing();
 
-            // set theme color            
-            var safeArea = On<Xamarin.Forms.PlatformConfiguration.iOS>().SafeAreaInsets();
-            safeArea.Bottom = 0;
-            Padding = safeArea;
+            // set iOS padding     
+            if (Device.RuntimePlatform == Device.iOS) {
+                var safeArea = On<Xamarin.Forms.PlatformConfiguration.iOS>().SafeAreaInsets();
+                safeArea.Bottom = 0;
+                Padding = safeArea;
+            }
 
+            // set theme color     
             var color = CrossSettings.Current.Get<string>("themecolor") ?? Constants.DefaultColor;
             SetThemeColor(color);
         }
