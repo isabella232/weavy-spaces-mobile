@@ -84,4 +84,5 @@ Please make sure to read through the instructions on the links above to fully un
 ### The google-services.json file
 When you created a new project in [Firebase](https://firebase.google.com), you should have a google-services.json file that you downloaded. Add (or replace the existing one) in the Android project. Make sure the Build Action is set to `GoogleServicesJson`. The json file contains all the necessary settings and is automatically merged into the manifest when building the project.
 
-
+### Update the Android manifest.xml file
+Update the `Properties\AndroidManifest.xml` file located in the Android project. The `<category android:name="com.comapnyname.app" />` should match the the Android package name that you have specified.
