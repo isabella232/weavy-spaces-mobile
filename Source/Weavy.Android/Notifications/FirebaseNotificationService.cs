@@ -27,7 +27,10 @@ namespace Weavy.Droid.Notifications {
             if (string.IsNullOrWhiteSpace(messageBody))
                 return;
 
-            DisplayNotification(messageBody, url);
+            if (!AppInForeground()) {
+                DisplayNotification(messageBody, url);
+            }
+            
         }
 
         /// <summary>
@@ -85,11 +88,33 @@ namespace Weavy.Droid.Notifications {
 
                 notificationManager.Notify(9999, summaryNotification.Build());
             }
+        }
 
-           
+        /// <summary>
+        /// Check if app is in foreground
+        /// </summary>
+        /// <returns></returns>
+        private bool AppInForeground() {
+            var context = Application.Context;
 
-            
-            
+            KeyguardManager km = (KeyguardManager)context.GetSystemService(Context.KeyguardService);
+            if (!km.InKeyguardRestrictedInputMode()) {
+
+                var activityManager = (ActivityManager)context.GetSystemService(Context.ActivityService);
+                var appProcesses = activityManager.RunningAppProcesses;
+                if (appProcesses == null) {
+                    return false;
+                }
+
+                var packageName = context.PackageName;
+                foreach (ActivityManager.RunningAppProcessInfo appProcess in appProcesses) {
+                    if (appProcess.Importance == Importance.Foreground && appProcess.ProcessName == packageName) {
+                        return true;
+                    }
+                }
+            }
+
+            return false;
         }
     }
 }
