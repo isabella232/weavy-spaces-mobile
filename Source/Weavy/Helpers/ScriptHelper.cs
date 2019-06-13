@@ -19,10 +19,10 @@ if(typeof weavyAppScripts === 'undefined') {
 /* Reconnect to weavy rtm or reload page      */
 /********************************************/
 try{ 
-    if(weavy.connection.status && weavy.connection.status() === 4) {
+    if(wvy.connection.status && wvy.connection.status() === 4) {
         window.location.reload(); 
     } else{
-        weavy.connection.connect(); 
+        wvy.connection.connect(); 
     }
 } catch(e){}
 ";
@@ -84,7 +84,7 @@ weavyAppScripts.push = (function(){
 /* Handle badge changes                     */
 /********************************************/
 weavyAppScripts.badge = (function(){    
-    weavy.realtime.on('badge.weavy', function(e, data){
+    wvy.realtime.on('badge.weavy', function(e, data){
         Native('badgeCallback', data.notifications);
     });
 
