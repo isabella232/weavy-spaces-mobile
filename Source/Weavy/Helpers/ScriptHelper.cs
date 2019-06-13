@@ -90,7 +90,7 @@ weavyAppScripts.badge = (function(){
 
     var check = function(){
         
-        $.ajax('/api/notifications/unread').then(function(response){
+        $.ajax('/a/notifications/unread').then(function(response){
             var count = response.data != null ? response.data.length : 0;
                    
             Native('badgeCallback', count);
@@ -116,7 +116,7 @@ weavyAppScripts.theme = (function(){
     function set(){
         var color = '#156B93';
                 
-        $.ajax('/api/theme').then(function(response){
+        $.ajax('/a/theme').then(function(response){
             var colors = response.colors;
             var color = response.theme_color;
             if(!color && colors.length && colors.length > 7) {
